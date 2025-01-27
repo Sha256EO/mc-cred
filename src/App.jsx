@@ -5,6 +5,7 @@ import requisitos from './assets/img/service-01.png';
 import prestamos from './assets/img/prestamos.jpg';
 import creditos from './assets/img/creditos.jpg';
 import consumo1 from './assets/img/consumo1.png';
+import heroImage from './assets/img/hero.jpg';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -99,11 +100,22 @@ const App = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="bg-gradient-to-r from-blue-500 to-green-400 text-white py-20">
+      <section
+        id="hero"
+        className="bg-cover bg-center text-white py-40"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      >
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">Bienvenido a MiLanding</h2>
-          <p className="text-lg mb-6">Crea algo increíble con nuestra herramienta innovadora.</p>
-          <button onClick={() => handleScroll('about')} className="bg-white text-blue-600 px-6 py-3 rounded-full shadow-lg hover:bg-gray-100">
+          <h1 className="text-5xl font-extrabold mb-6 drop-shadow-lg">
+            Bienvenido a Mc Cred
+          </h1>
+          <p className="text-xl mb-8 drop-shadow-lg">
+            Más de 2000 negocios adheridos y sucursales en todo el país, ofreciendo soluciones financieras rápidas y confiables.
+          </p>
+          <button
+            onClick={() => handleScroll('about')}
+            className="bg-blue-500 text-white px-8 py-4 rounded-full shadow-lg hover:bg-green-500 transition-all duration-300"
+          >
             Conoce más
           </button>
         </div>
