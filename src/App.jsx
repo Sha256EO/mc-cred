@@ -24,7 +24,7 @@ const App = () => {
 
   useEffect(() => {
     const handleScrollSpy = () => {
-      const sections = ['hero', 'about', 'servicios', 'requisitos', 'compras', 'contact'];
+      const sections = ['hero', 'about', 'servicios', 'requisitos', 'compras', 'servicios', 'contact'];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       sections.forEach((section) => {
@@ -78,6 +78,9 @@ const App = () => {
               className={navItemClass('compras')}
             >
               Compras
+            </button>
+            <button onClick={() => handleScroll('afiliados')} className={navItemClass('afiliados')}>
+              Afiliados
             </button>
             <button
               onClick={() => handleScroll('about')}
@@ -255,6 +258,28 @@ const App = () => {
         </div>
       </section>
 
+      {/* Afiliados Section */}
+      <section id="afiliados" className="py-16 bg-white">
+        <div className="container mx-auto text-center">
+          <h3 className="text-2xl font-bold mb-8">Nuestros Afiliados</h3>
+          <p className="mb-8 text-gray-700">
+            Descubre la diversidad de rubros de nuestros comercios afiliados y aprovecha los beneficios exclusivos que tenemos para ti.
+          </p>
+          <div className="overflow-hidden relative">
+            <div className="flex animate-marquee whitespace-nowrap">
+              {['Supermercado Plus', 'Moda Style', 'Electro Hogar', 'Farmacia Salud', 'Librería Mundo', 'Deportes Pro', 'Tecnología Fast', 'Viajes Felices'].map((empresa, index) => (
+                <div
+                  key={index}
+                  className="mx-8 text-xl font-semibold text-gray-800 bg-gray-100 px-4 py-2 rounded-lg shadow-md"
+                >
+                  {empresa}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="py-16">
         <div className="container mx-auto flex flex-col md:flex-row items-center mb-12">
@@ -379,6 +404,21 @@ const App = () => {
           <p>&copy; 2025 MiLanding. Todos los derechos reservados.</p>
         </div>
       </footer>
+
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(100%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+        .animate-marquee {
+          animation: marquee 15s linear infinite;
+        }
+      `}</style>
     </div>
   );
 };
