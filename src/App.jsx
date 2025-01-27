@@ -382,33 +382,69 @@ const App = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16">
-        <div className="container mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-6">Contáctanos</h3>
-          <form className="space-y-4">
-            <input
-              type="text"
-              placeholder="Tu nombre"
-              className="w-full p-3 border rounded-lg"
-            />
-            <input
-              type="email"
-              placeholder="Tu correo"
-              className="w-full p-3 border rounded-lg"
-            />
-            <textarea
-              placeholder="Tu mensaje"
-              className="w-full p-3 border rounded-lg"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600"
-            >
-              Enviar
-            </button>
-          </form>
+      <section id="contact" className="py-16 bg-gray-100">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Contact Info */}
+          <div className="text-center md:text-left">
+            <h3 className="text-2xl font-bold mb-4">Contáctanos</h3>
+            <p className="text-lg font-semibold">Teléfonos:</p>
+            <ul className="space-y-2">
+              <li>📞 Fijo: (123) 456-7890</li>
+              <li>📞 Fijo: (987) 654-3210</li>
+              <li>📱 Móvil: +54 9 123 456 789</li>
+            </ul>
+            <p className="text-lg font-semibold mt-4">Correo Electrónico:</p>
+            <p>📧 contacto@mccred.com</p>
+            <p className="text-lg font-semibold mt-4">Horarios de Atención:</p>
+            <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4 text-center">Solicita tu Turno</h3>
+            <form className="space-y-4">
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                className="w-full p-3 border rounded-lg"
+              />
+              <input
+                type="text"
+                placeholder="Tu teléfono"
+                className="w-full p-3 border rounded-lg"
+              />
+              <input
+                type="text"
+                placeholder="Motivo de consulta"
+                className="w-full p-3 border rounded-lg"
+              />
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 w-full"
+              >
+                Enviar
+              </button>
+            </form>
+          </div>
+
+          {/* Map Section */}
+          <div className="text-center md:text-right">
+            <h3 className="text-2xl font-bold mb-4">Nuestra Ubicación</h3>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d524.685408342092!2d-64.25909906565154!3d-27.78979872628637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x943b5211c1d65b0f%3A0xb41ea98c59bbe7a6!2sMc%20Cred!5e0!3m2!1ses-419!2sar!4v1737989191551!5m2!1ses-419!2sar"
+              width="100%"
+              height="250"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-lg shadow-md"
+            ></iframe>
+          </div>
         </div>
       </section>
+
+
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-6">
