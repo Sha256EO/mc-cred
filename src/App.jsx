@@ -9,6 +9,7 @@ import heroImage from './assets/img/hero.jpg';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('hero');
+  const [menuOpen, setMenuOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState(null);
 
   const handleScroll = (id) => {
@@ -16,6 +17,7 @@ const App = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setActiveSection(id);
+      setMenuOpen(false);
     }
   };
 
@@ -55,44 +57,36 @@ const App = () => {
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center p-4">
           <img src={logo} alt="Logo" className="h-10" />
-          <nav className="flex space-x-2">
-            <button
-              onClick={() => handleScroll('hero')}
-              className={navItemClass('hero')}
-            >
+          <button
+            className="md:hidden text-gray-800 text-2xl focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            &#9776;
+          </button>
+          <nav
+            className={`${
+              menuOpen ? 'block' : 'hidden'
+            } absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent md:flex md:space-x-4 p-4 md:p-0 shadow-md md:shadow-none flex flex-col md:flex-row space-y-4 md:space-y-0`}
+          >
+            <button onClick={() => handleScroll('hero')} className={navItemClass('hero')}>
               Inicio
             </button>
-            <button
-              onClick={() => handleScroll('servicios')}
-              className={navItemClass('servicios')}
-            >
+            <button onClick={() => handleScroll('servicios')} className={navItemClass('servicios')}>
               Servicios
             </button>
-            <button
-              onClick={() => handleScroll('requisitos')}
-              className={navItemClass('requisitos')}
-            >
-              Prestamos en Efectivo
+            <button onClick={() => handleScroll('requisitos')} className={navItemClass('requisitos')}>
+              Requisitos
             </button>
-            <button
-              onClick={() => handleScroll('compras')}
-              className={navItemClass('compras')}
-            >
+            <button onClick={() => handleScroll('compras')} className={navItemClass('compras')}>
               Compras
             </button>
             <button onClick={() => handleScroll('afiliados')} className={navItemClass('afiliados')}>
               Afiliados
             </button>
-            <button
-              onClick={() => handleScroll('about')}
-              className={navItemClass('about')}
-            >
-              Nosotros
+            <button onClick={() => handleScroll('about')} className={navItemClass('about')}>
+              Sobre Nosotros
             </button>
-            <button
-              onClick={() => handleScroll('contact')}
-              className={navItemClass('contact')}
-            >
+            <button onClick={() => handleScroll('contact')} className={navItemClass('contact')}>
               Contacto
             </button>
           </nav>
